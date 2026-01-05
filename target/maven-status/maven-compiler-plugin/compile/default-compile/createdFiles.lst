@@ -1,2 +1,5 @@
 edu\centralenantes\prwebspring\JakartaRestConfiguration.class
+edu\centralenantes\prwebspring\items\Book.class
+edu\centralenantes\prwebspring\items\Borrow.class
+edu\centralenantes\prwebspring\items\Person.class
 edu\centralenantes\prwebspring\resources\JakartaEE10Resource.class
