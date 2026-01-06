@@ -16,11 +16,15 @@
 
     <mvc:annotation-driven/>
 
-    <context:component-scan base-package=" edu.centralenantes.prwebspring.controllers"/>
+    <!-- Scan des controllers - SANS ESPACE -->
+    <context:component-scan base-package="edu.centralenantes.prwebspring.controllers"/>
 
-    <jpa:repositories base-package=" edu.centralenantes.prwebspring.repositories" 
-                      entity-manager-factory-ref="entityManagerFactoryBean"/>
+    <!-- Configuration des repositories JPA - SANS ESPACE -->
+    <jpa:repositories base-package="edu.centralenantes.prwebspring.repositories" 
+                      entity-manager-factory-ref="entityManagerFactoryBean"
+                      transaction-manager-ref="transactionManager"/>
 
+    <!-- EntityManagerFactory -->
     <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="infosi_prwebspring_war_1.0PU"/>
         <property name="loadTimeWeaver">
@@ -28,9 +32,13 @@
         </property>
     </bean>
 
+    <!-- Transaction Manager -->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactoryBean"/>
     </bean>
+
+    <!-- Active les annotations @Transactional -->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <context:load-time-weaver/>
 

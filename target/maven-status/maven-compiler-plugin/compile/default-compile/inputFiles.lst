@@ -1,5 +1,16 @@
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\controllers\HomeController.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\controllers\IndexController.java
 C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\items\Book.java
 C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\items\Borrow.java
 C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\items\Person.java
 C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\JakartaRestConfiguration.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\BookRepository.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\BookRepositoryCustom.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\BookRepositoryCustomImpl.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\BorrowRepository.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\BorrowRepositoryCustom.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\BorrowRepositoryCustomImpl.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\PersonRepository.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\PersonRepositoryCustom.java
+C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\repositories\PersonRepositoryCustomImpl.java
 C:\Users\Mohamed\Documents\NetBeansProjects\prwebSpring\src\main\java\edu\centralenantes\prwebspring\resources\JakartaEE10Resource.java

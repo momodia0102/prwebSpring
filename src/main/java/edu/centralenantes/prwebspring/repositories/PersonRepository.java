@@ -2,6 +2,10 @@ package edu.centralenantes.prwebspring.repositories;
 
 import edu.centralenantes.prwebspring.items.Person;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PersonRepository {
+@Repository
+public interface PersonRepository extends JpaRepository<Person, Integer> {
+    // Spring Data JPA génère automatiquement les méthodes CRUD
+    // Vous pouvez ajouter des méthodes personnalisées ici si nécessaire
 }

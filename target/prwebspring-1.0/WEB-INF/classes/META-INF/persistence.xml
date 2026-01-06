@@ -5,13 +5,17 @@
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>edu.centralenantes.prwebspring.items.Person</class>
         <class>edu.centralenantes.prwebspring.items.Book</class>
-        <class>fedu.centralenantes.prwebspring.items.Borrow</class>
+        <class>edu.centralenantes.prwebspring.items.Borrow</class>
         <exclude-unlisted-classes>false</exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/prweb"/>
             <property name="jakarta.persistence.jdbc.user" value="prweb"/>
             <property name="jakarta.persistence.jdbc.password" value="prweb"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            
+            <!-- Propriétés EclipseLink optionnelles mais recommandées -->
+            <property name="eclipselink.logging.level" value="FINE"/>
+            <property name="eclipselink.ddl-generation" value="none"/>
         </properties>
     </persistence-unit>
 </persistence>

@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package edu.centralenantes.prwebspring.repositories;
 
-/**
- *
- * @author Mohamed
- */
-public interface BookRepository {
-    
+import edu.centralenantes.prwebspring.items.Book;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface BookRepository extends JpaRepository<Book, Integer> {
+    // Spring Data JPA génère automatiquement les méthodes CRUD
 }
