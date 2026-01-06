@@ -1,17 +1,50 @@
 package edu.centralenantes.prwebspring.controllers;
 
+import edu.centralenantes.prwebspring.repositories.BookRepository;
+import edu.centralenantes.prwebspring.repositories.BorrowRepository;
+import edu.centralenantes.prwebspring.repositories.PersonRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+import jakarta.servlet.http.HttpServletRequest;
 
-/**
- * Controller simple pour tester le démarrage
- */
+
 @Controller
 public class IndexController {
-    
+
+    @Autowired
+    private BookRepository bookRepository;
+
+    @Autowired
+    private PersonRepository personRepository;
+
+    @Autowired
+    private BorrowRepository borrowRepository;
+
     @RequestMapping(value = "/index.do", method = RequestMethod.GET)
-    public String index() {
-        return "index";  
+    public ModelAndView handleGet() {
+        ModelAndView mv = new ModelAndView("index");
+        mv.addObject("bookList", bookRepository.findAll());
+        mv.addObject("personList", personRepository.findAll());
+        mv.addObject("borrowList", borrowRepository.findAll());
+        return mv;
     }
+    @RequestMapping( value= "login.do", method= RequestMethod.POST)
+    public ModelAndView handleLogicPost(HttpServletRequest request){
+        ModelAndView returned;
+        
+        String login = request.getParameter("login");
+        String password = request.getParameter("password");
+        
+        if ((login != null) && (password != null)
+                && (login.equals("admin")) && (password.equals("admin"))){
+            returned = new ModelAndView("users");
+        }else {
+            returned = new ModelAndView("index");
+        }
+        return returned;
+    };
+    
 }

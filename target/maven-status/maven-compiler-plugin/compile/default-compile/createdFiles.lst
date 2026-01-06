@@ -3,7 +3,6 @@ edu\centralenantes\prwebspring\repositories\BorrowRepository.class
 edu\centralenantes\prwebspring\JakartaRestConfiguration.class
 edu\centralenantes\prwebspring\repositories\PersonRepositoryCustomImpl.class
 edu\centralenantes\prwebspring\resources\JakartaEE10Resource.class
-edu\centralenantes\prwebspring\controllers\HomeController.class
 edu\centralenantes\prwebspring\repositories\BookRepositoryCustom.class
 edu\centralenantes\prwebspring\repositories\PersonRepository.class
 edu\centralenantes\prwebspring\repositories\BookRepository.class
