@@ -23,6 +23,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import jakarta.xml.bind.annotation.XmlTransient;
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Date;
 
 /**
@@ -38,7 +39,7 @@ import java.util.Date;
     @NamedQuery(name = "Person.findByPersonFirstname", query = "SELECT p FROM Person p WHERE p.personFirstname = :personFirstname"),
     @NamedQuery(name = "Person.findByPersonLastname", query = "SELECT p FROM Person p WHERE p.personLastname = :personLastname"),
     @NamedQuery(name = "Person.findByPersonBirthdate", query = "SELECT p FROM Person p WHERE p.personBirthdate = :personBirthdate")})
-public class Person implements Serializable {
+public class Person implements Serializable, Comparable<Person> {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -139,6 +140,31 @@ public class Person implements Serializable {
     @Override
     public String toString() {
         return "edu.centralenantes.prwebspring.items.Person[ personId=" + personId + " ]";
+    }
+    
+    @Override
+    public int compareTo(Person object) {
+        if (object == null) {
+            return 1;
+        }
+        if (this.getPersonLastname().toUpperCase().equals(object.getPersonLastname().toUpperCase())) {
+            return this.getPersonFirstname().toUpperCase().compareTo(object.getPersonFirstname().toUpperCase());
+        } else {
+            return this.getPersonLastname().toUpperCase().compareTo(object.getPersonLastname().toUpperCase());
+        }
+    }
+    
+    public static Comparator<Person> getComparator() {
+        return new Comparator<Person>() {
+            @Override
+            public int compare(Person object1, Person object2) {
+                if (object1 == null) {
+                    return -1;
+                } else {
+                    return object1.compareTo(object2);
+                }
+            }
+        };
     }
     
 }

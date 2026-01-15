@@ -122,8 +122,10 @@ h1 {
 
 .icon {
     display: inline-block;
+    width: 16px !important;
+    height: 16px !important;
+    object-fit: contain;
 }
-
 /* Responsive design */
 @media (max-width: 768px) {
     .users-table {

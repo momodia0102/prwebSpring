@@ -1,37 +1,21 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List of Users</title>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1"> 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css"> 
-    <%-- <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script> --%>
-    <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <link href="${pageContext.request.contextPath}/css/usersStyle.css" rel="stylesheet" type="text/css" />
-    </head>
+     <link href="css/navbarStyle.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css"> 
+    <script type="text/javascript" src="js/jquery-3.7.1.min.js"></script> 
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="css/usersStyle.css" rel="stylesheet" type="text/css" />
+</head>
 <body>
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">Library App</a> 
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav ms-auto"> 
-                    <a class="nav-link text-white" href="users.html">Users</a>
-
-                    <a class="nav-link text-white" href="books.html">Books</a>
-
-                    <a class="nav-link btn btn-outline-danger ms-2" href="index.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <%@include file="navbar.jspf" %>
+    
     <div class="py-5">
         <div class="container">
             
@@ -56,47 +40,34 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Jean-Yves</td>
-                                    <td>Martin</td>
-                                    <td>1963-08-12</td>
-                                    <td class="text-center">
-                                        <form action="" method="POST">
-                                            <button class="btn btn-sm btn-warning" formaction="editUser" name="edit" title="Edit user">
-                                                <span class="icon">âï¸</span>
-                                            </button>
-                                            <button class="btn btn-sm btn-danger" formaction="deleteUser" name="delete" title="Delete user">
-                                                <span class="icon">ðï¸</span>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Marie</td>
-                                    <td>Dubois</td>
-                                    <td>1985-03-25</td>
-                                    <td class="text-center">
-                                        <form action="" method="POST">
-                                            <button class="btn btn-sm btn-warning" formaction="editUser" name="edit" title="Edit user">
-                                                <span class="icon">âï¸</span>
-                                            </button>
-                                            <button class="btn btn-sm btn-danger" formaction="deleteUser" name="delete" title="Delete user">
-                                                <span class="icon">ðï¸</span>
-                                            </button>
-                                        </form>
-                                    </td>
-                                </tr>
+                                <c:forEach var="item" items="${usersList}">
+                                    <tr>
+                                        <td>${item.personId}</td>
+                                        <td>${item.personFirstname}</td>
+                                        <td>${item.personLastname}</td>
+                                        <td><fmt:formatDate value="${item.personBirthdate}" pattern="yyyy-MM-dd" /></td>
+                                        <td class="text-center">
+                                            <form action="" method="POST">
+                                                <input type="hidden" name="id" value="${item.personId}" />
+                                                <button class="btn btn-sm btn-warning" formaction="edituser.do" name="edit" title="Edit user">
+                                                    <img src="img/edit.png" alt="edit" style="width: 16px; height: 16px;" />
+                                                </button>
+                                                <button class="btn btn-sm btn-danger" formaction="deleteuser.do" name="delete" title="Delete user">
+                                                    <img src="img/delete.png" alt="delete" style="width: 16px; height: 16px;" />
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
                             </tbody>
                             
                             <tfoot>
                                 <tr id="addNew">
                                     <td colspan="4"></td>
                                     <td class="text-center">
-                                        <form action="createUser" method="POST">
+                                        <form action="createuser.do" method="POST">
                                             <button class="btn btn-sm btn-success" name="add" title="Add new user">
-                                                <span class="icon">â</span>
+                                                <img src="img/plus.png" alt="add" style="width: 16px; height: 16px;" />
                                             </button>
                                         </form>
                                     </td>
